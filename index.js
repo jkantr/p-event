@@ -126,6 +126,7 @@ module.exports.iterator = (emitter, event, options) => {
 	const events = toArray(event);
 
 	options = {
+		filterRejections: false,
 		rejectionEvents: ['error'],
 		resolutionEvents: [],
 		limit: Infinity,
@@ -211,6 +212,10 @@ module.exports.iterator = (emitter, event, options) => {
 
 	const rejectHandler = (...args) => {
 		error = options.multiArgs ? args : args[0];
+		
+		if (options.filter && options.filterRejections && !options.filter(value)) {
+			return;
+		}
 
 		if (nextQueue.length > 0) {
 			const {reject} = nextQueue.shift();
