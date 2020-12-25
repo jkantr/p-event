@@ -77,6 +77,12 @@ declare namespace pEvent {
 		```
 		*/
 		readonly filter?: FilterFunction<EmittedType>;
+		/**
+		Also apply the filter to rejectionEvents
+		
+		@default false
+		*/
+		readonly filterRejections?: boolean;
 	}
 
 	interface MultiArgumentsOptions<EmittedType extends unknown[]>
