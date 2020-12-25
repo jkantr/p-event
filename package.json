@@ -1,5 +1,5 @@
 {
-	"name": "p-event",
+	"name": "@jkantr/p-event",
 	"version": "4.2.0",
 	"description": "Promisify an event by waiting for it to be emitted",
 	"license": "MIT",
